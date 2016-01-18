@@ -3,20 +3,16 @@ var path = require('path');
 
 module.exports = {
     entry: {
-        index: path.join(__dirname, 'app/app.js')
+        'bundle': path.join(__dirname, 'app/app.js'),
+        'bundle.min': path.join(__dirname, 'app/app.js')
     },
     output: {
         path: "app/",
         publicPath: "js/",
-        filename: "bundle.js",
+        filename: "[name].js",
     },
+    devtool: "source-map",
     module: {
-        preLoaders: [
-          { 
-            test: /\.js$/,
-            loader: 'baggage?[file].html' 
-          }
-        ],
         loaders: [
           {
             test: /\.html$/,
@@ -28,6 +24,13 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: 'jquery',
            _: 'lodash'
-        })
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+          minimize: true,
+          include: /\.min\.js$/,
+          compress: {
+            unused: false
+          }
+        }) 
    ]
 };
