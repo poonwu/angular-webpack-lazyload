@@ -3,15 +3,12 @@ function requireAll(requireContext, exclude) {
 }
 
 //angular vendor
-require('./vendor.js')();
+//require('./vendor.js')();
 
+require('angular');
 
 //Bootstrap angular app
 angular.module('app', []);
-
-angular.element(document).ready(function() {
-	angular.bootstrap(document, ['app']);
-});
 
 //Require all other dependencies
 requireAll(require.context('.', true, /([/][\w]+){2,}\.html$/));

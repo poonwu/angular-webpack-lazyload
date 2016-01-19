@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server ./app -o"
   },
   "author": "",
   "license": "ISC",
@@ -20,5 +21,8 @@
     "ngtemplate-loader": "^1.3.1",
     "source-map": "^0.5.3",
     "webpack": "^1.12.1"
+  },
+  "dependencies": {
+    "async": "^1.5.2"
   }
 }

@@ -7,7 +7,7 @@ module.exports = {
         'bundle.min': path.join(__dirname, 'app/app.js')
     },
     output: {
-        path: "app/",
+        path: "app/build/",
         publicPath: "js/",
         filename: "[name].js",
     },
@@ -29,7 +29,8 @@ module.exports = {
           minimize: true,
           include: /\.min\.js$/,
           compress: {
-            unused: false
+            unused: false,
+            dead_code: false
           }
         }) 
    ]
